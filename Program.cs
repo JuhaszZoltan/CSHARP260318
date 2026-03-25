@@ -203,3 +203,15 @@ foreach (var gn in gondozok) Console.WriteLine(gn);
 //unió      -> .Union()    v .UnionBy(x => x...),
 //metszet   -> .Intesect() v .IntercescBy(x => x....)
 //különbség -> .Except()   v .ExceptBy(x => x...)
+
+
+var f01 = allatok.Where(a => a.Faj == "Oroszlán").Average(a => a.Eletkor);
+
+var f02 = allatok.Count(a => a.Nev is not null);
+
+var f03 = allatok.Where(a => a.Reszleg.Nev == "Majom-sziget" && a.Eletkor > 2);
+
+var f04 = allatok.Where(a => a.Gondozo.Nev == "Nagy Anna").DistinctBy(a => a.Faj).Count();
+
+Console.WriteLine(f04);
+

@@ -1,0 +1,10 @@
+# lekerdezesek
+- oroszlanok atlagos eletkora
+- nevvel rendelkezo allatok szama
+- 2 évesnél idosebb lakok a majom-szigeten
+- allatok szama gondozonkent
+- nagy anna altal gondozott allatfajok szama
+- 2000 nm alatti alapteruletu reszlegen ello allatfajok
+- reszlegek nepsurusege
+- vizi allatokkal foglalkozo gondozo allatainak reszlegnevei
+- <input> allatfaj gondozojanak neve

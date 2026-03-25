@@ -7,5 +7,5 @@
     public Gondozo Gondozo { get; set; }
 
     public override string ToString() 
-        => $"{Faj} ({Eletkor:0.0} éves), neve: {(Nev is null ? "még nincs" : Nev)}";
+        => $"{Faj} ({Eletkor:0.0} éves), neve: {(Nev is null ? "még nincs" : Nev)} (gondozója: {Gondozo.Nev})";
 }

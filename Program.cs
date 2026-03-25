@@ -133,7 +133,56 @@ Console.WriteLine(egyetlenZsiraf is null);
 
 //SELECT AVG(eletkor) FROM allatok WHERE faj LIKE 'zebra'
 
-//var avg = allatok.Where(x => x.Faj == "Zebra").Average(x => x.Eletkor);
+
+var oroszlanok = allatok.Where(a => a.Faj == "Oroszlán");
+
+Console.WriteLine("oroszlánok:");
+foreach (var allat in oroszlanok) Console.WriteLine($"- {allat}");
+
+//Dictionary<string, List<Allat>> aszr = [];
+//foreach (var allat in allatok)
+//{
+//    _ = aszr.TryAdd(allat.Reszleg.Nev, []);
+//    aszr[allat.Reszleg.Nev].Add(allat);
+//}
+//Console.WriteLine("allatok szama reszlegenkent:");
+//foreach (var kvp in aszr)
+//{
+//    Console.WriteLine($"\t{kvp.Key} lakói:");
+//    foreach (var allat in kvp.Value)
+//    {
+//        Console.WriteLine($"\t\t-{allat}");
+//    }
+//}
+
+var arsz = allatok.GroupBy(a => a.Reszleg.Nev);
+foreach (var item in arsz) Console.WriteLine($"{item.Key}: {item.Count()}");
+
+//int[] t = [3, 2, 1, 5, 0, 10];
+//t.Sort();
+//Console.WriteLine(string.Join(", ", t));
+
+Console.WriteLine("---------------------------------------------");
+
+var kszcs = allatok.OrderByDescending(a => a.Eletkor).ThenBy(a => a.Gondozo.Nev);
+foreach (var allat in kszcs) Console.WriteLine(allat);
+
+
+var avg = allatok.Where(x => x.Faj == "Zebra").Average(x => x.Eletkor);
+
+//IEnumerable<int> a = [2, 3, 4];
+//IEnumerable<int> b = [3, 4, 5];
+//var c = a.Union(b);
+//Console.WriteLine(string.Join(", ", c));
+
+Console.WriteLine("--------------");
+
+//var x = allatok.DistinctBy(a => a.Gondozo.Nev).Select(a => new { a.Gondozo.Nev, a.Gondozo.Szakterulet});
+//foreach (var gondozo in x) Console.WriteLine($"- {gondozo.Nev} ({gondozo.Szakterulet})");
+
+var gondozok = allatok.Select(a => a.Gondozo.Nev).Distinct();
+foreach (var gn in gondozok) Console.WriteLine(gn);
+
 //Console.WriteLine($"zebrak atlageletkora (linq): {avg}");
 
 //LINQ -> language integrated query
@@ -151,4 +200,6 @@ Console.WriteLine(egyetlenZsiraf is null);
 
 //rendezési algoritmusok (egyszerű cserés, buborék) -> order by, order by desc,
 
-//unió, metszet, különbség
+//unió      -> .Union()    v .UnionBy(x => x...),
+//metszet   -> .Intesect() v .IntercescBy(x => x....)
+//különbség -> .Except()   v .ExceptBy(x => x...)
